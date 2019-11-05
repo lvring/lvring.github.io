@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | lvring小站</title>
+  <title>轻量级神经网络简介 一 | lvring小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="lvring小站">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="前言 只有解决CNN的效率问题，才能让CNN走出实验室，让AIOT发展越来越好 通常的方法是进行模型压缩，就是对已经训练好的模型上进行压缩，减少网络参数，同时可以解决速度问题 轻量化模型设计主要思想在于设计更高效的[网络计算方式]–目前主要针对卷积方式，使网络参数减少的同时，不损失网络性能。 目前主流轻量级网络主要有：MobileNet系列（v1-v3）、ShuffleNet系列（v1-v2）、S">
+<meta name="keywords" content="深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="轻量级神经网络简介 一">
+<meta property="og:url" content="http://yoursite.com/2019/11/05/轻量级神经网络简介-一/index.html">
 <meta property="og:site_name" content="lvring小站">
+<meta property="og:description" content="前言 只有解决CNN的效率问题，才能让CNN走出实验室，让AIOT发展越来越好 通常的方法是进行模型压缩，就是对已经训练好的模型上进行压缩，减少网络参数，同时可以解决速度问题 轻量化模型设计主要思想在于设计更高效的[网络计算方式]–目前主要针对卷积方式，使网络参数减少的同时，不损失网络性能。 目前主流轻量级网络主要有：MobileNet系列（v1-v3）、ShuffleNet系列（v1-v2）、S">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-11-05T13:27:24.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lvring小站">
+<meta name="twitter:title" content="轻量级神经网络简介 一">
+<meta name="twitter:description" content="前言 只有解决CNN的效率问题，才能让CNN走出实验室，让AIOT发展越来越好 通常的方法是进行模型压缩，就是对已经训练好的模型上进行压缩，减少网络参数，同时可以解决速度问题 轻量化模型设计主要思想在于设计更高效的[网络计算方式]–目前主要针对卷积方式，使网络参数减少的同时，不损失网络性能。 目前主流轻量级网络主要有：MobileNet系列（v1-v3）、ShuffleNet系列（v1-v2）、S">
   
     <link rel="alternative" href="/atom.xml" title="lvring小站" type="application/atom+xml">
   
@@ -150,36 +155,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-轻量级神经网络简介-一" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/05/轻量级神经网络简介-一/" class="archive-article-date">
-  	<time datetime="2019-11-05T13:02:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/05/轻量级神经网络简介-一/">轻量级神经网络简介 一</a>
+    <h1 class="article-title" itemprop="name">
+      轻量级神经网络简介 一
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/11/05/轻量级神经网络简介-一/" class="archive-article-date">
+  	<time datetime="2019-11-05T13:02:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>前言</strong> 只有解决CNN的效率问题，才能让CNN走出实验室，让AIOT发展越来越好</p>
+<p>通常的方法是进行模型压缩，就是对已经训练好的模型上进行压缩，减少网络参数，同时可以解决速度问题</p>
+<p>轻量化模型设计主要思想在于设计更高效的[网络计算方式]–目前主要针对卷积方式，使网络参数减少的同时，不损失网络性能。</p>
+<p>目前主流轻量级网络主要有：MobileNet系列（v1-v3）、ShuffleNet系列（v1-v2）、SNet（轻量型目标检测网络）</p>
+<p><strong>大型网络存在的问题</strong> </p>
+<p><strong>1、存储问题</strong> ：数百层网络有着大量的权重参数，保存大量权值参数对设备内存要求</p>
+<p><strong>2、速度问题</strong> ：在实际落地应用中，往往是毫秒级别，为了达到实际应用标准，两种解决方法：a、提高处理器性能 b、减少计算量 大型网络计算量大，处理任务速度慢</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,73 +222,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/05/轻量级神经网络简介-一/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/15/my-first-blog/" class="archive-article-date">
-  	<time datetime="2019-01-15T05:16:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/15/my-first-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">my-first-blog</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/15/my-first-blog/">my-first-blog</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/15/hello-world/" class="archive-article-date">
-  	<time datetime="2019-01-15T04:41:41.458Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/15/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -280,8 +344,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
