@@ -255,13 +255,9 @@
 <p>通常的方法是进行模型压缩，就是对已经训练好的模型上进行压缩，减少网络参数，同时可以解决速度问题</p>
 <p>轻量化模型设计主要思想在于设计更高效的[网络计算方式]–目前主要针对卷积方式，使网络参数减少的同时，不损失网络性能。</p>
 <p>目前主流轻量级网络主要有：MobileNet系列（v1-v3）、ShuffleNet系列（v1-v2）、SNet（轻量型目标检测网络）</p>
-<p><strong>大型网络存在的问题</strong> </p>
-<p><strong>1、存储问题</strong> ：数百层网络有着大量的权重参数，保存大量权值参数对设备内存要求</p>
-<p><strong>2、速度问题</strong> ：在实际落地应用中，往往是毫秒级别，为了达到实际应用标准，两种解决方法：a、提高处理器性能 b、减少计算量 大型网络计算量大，处理任务速度慢</p>
-<h1 id="MobileNet-V1"><a href="#MobileNet-V1" class="headerlink" title="MobileNet V1"></a>MobileNet V1</h1><p><a href="https://arxiv.org/abs/1704.04861" target="_blank" rel="noopener">MobileNet V1</a> 是由Google团队提出，发表于CVPR2017，文章核心思想是通过深度可分离卷积来替代标准卷积，减少参数量。</p>
-<h6 id="深度可分离卷积（Depthwise-Separable-convolution）的核心思想："><a href="#深度可分离卷积（Depthwise-Separable-convolution）的核心思想：" class="headerlink" title="深度可分离卷积（Depthwise Separable convolution）的核心思想："></a>深度可分离卷积（Depthwise Separable convolution）的核心思想：</h6><p>1、首先进行逐通道卷积（Depthwise Convolution），按照输入特征图按通道进行分组，有多少个通道就用多少个卷积核，卷积核与单个通道的特征图进行卷积，如我输入一个25*25*4的特征图，则这个卷积操作中只有Dk*Dk*1*4卷积核。如下图所示,每个卷积核只和单个通道的特征图进行卷积。</p>
-<p> <img src="https://img-blog.csdn.net/20180812161250650?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3RpbnRpbmV0bWlsb3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="è¿éåå¾çæè¿°"> </p>
-
+        
+          <a class="article-more-a" href="/2019/11/05/轻量级神经网络简介-一/#more">more >></a>
+        
       
 
       
